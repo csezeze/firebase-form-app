@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Root & Ray İletişim Formu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1><span class="flower">🌺</span> Root & Ray İletişim Formu <span class="flower">🌺</span></h1>
+    <form action="/gonder" method="POST">
+      <div class="input-group">
+        <label for="ad">Adınız:</label>
+        <input type="text" id="ad" name="ad" placeholder="Adınızı girin" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="mesaj">Mesajınız:</label>
+        <textarea id="mesaj" name="mesaj" placeholder="Mesajınızı girin" rows="4" required></textarea>
+      </div>
+
+      <!-- Evet/Hayır sorusu -->
+      <div class="input-group">
+        <label for="katki">Root & Ray ile çalışmak ister misiniz?</label><br>
+        <label><input type="radio" name="katki" value="Evet" required> Evet</label>
+        <label><input type="radio" name="katki" value="Hayır" required> Hayır</label>
+      </div>
+
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+</body>
+</html>
