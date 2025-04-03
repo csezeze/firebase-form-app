@@ -1,6 +1,6 @@
 # 🌸 Firebase İletişim Formu 🌸
 
-Bu proje, **Root & Ray** şirketi için yapılmış bir **İletişim Formu** uygulamasıdır. Kullanıcılar, formu doldurup gönderdiklerinde mesajları **Firebase Firestore** veritabanında depolanır. Ayrıca, bir soru ile kullanıcıya **Evet** ya da **Hayır** olarak yanıt verme seçeneği sunulur. 🎉
+Bu proje, **Root & Ray** şirketi için yapılmış bir **İletişim Formu** uygulamasıdır. Kullanıcılar, formu doldurup gönderdiklerinde mesajları **Firebase Firestore** veritabanında depolanır. Ayrıca, bir soru ile kullanıcıya **Evet** ya da **Hayır** olarak yanıt verme seçeneği sunulur.
 
 **Canlı Demo:**  
 [Firebase İletişim Formu Uygulaması](https://firebase-form-app.onrender.com)
