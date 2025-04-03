@@ -1,6 +1,7 @@
 const { initializeApp } = require('firebase/app');
 const { getFirestore, collection, addDoc } = require('firebase/firestore');
 const express = require('express');
+const moment = require('moment'); // Moment.js kütüphanesini dahil ettik
 
 // Firebase yapılandırma bilgisi
 const firebaseConfig = {
@@ -28,7 +29,6 @@ expressApp.use(express.static('public'));
 // Form verisini alabilmek için bu satır önemli!
 expressApp.use(express.urlencoded({ extended: true }));
 
-
 // Anasayfa: Formun gösterileceği HTML
 expressApp.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/form.html');
@@ -38,14 +38,14 @@ expressApp.get('/', (req, res) => {
 expressApp.post('/gonder', async (req, res) => {
   const ad = req.body.ad; // Formdan "ad" verisini al
   const mesaj = req.body.mesaj; // Formdan "mesaj" verisini al
-  const zaman = new Date().toLocaleString; // Zaman bilgisini al
+  const zaman = moment().format('MM/DD/YYYY, hh:mm A'); // Moment.js ile tarihi formatlıyoruz
 
   // Firestore'a veri ekleyelim
   try {
     const docRef = await addDoc(collection(db, "mesajlar"), { // "mesajlar" koleksiyonuna veri ekliyoruz
       ad: ad,
       mesaj: mesaj,
-      zaman: zaman
+      zaman: zaman // Zamanı burada gönderiyoruz
     });
     console.log("Mesaj Firestore'a kaydedildi, ID:", docRef.id);
   } catch (e) {
