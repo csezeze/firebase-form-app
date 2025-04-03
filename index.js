@@ -38,7 +38,7 @@ expressApp.get('/', (req, res) => {
 expressApp.post('/gonder', async (req, res) => {
   const ad = req.body.ad; // Formdan "ad" verisini al
   const mesaj = req.body.mesaj; // Formdan "mesaj" verisini al
-  const zaman = new Date().toISOString(); // Zaman bilgisini al
+  const zaman = new Date().toLocaleString; // Zaman bilgisini al
 
   // Firestore'a veri ekleyelim
   try {
