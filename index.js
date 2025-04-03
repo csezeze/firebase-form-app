@@ -1,7 +1,7 @@
 const { initializeApp } = require('firebase/app');
 const { getFirestore, collection, addDoc } = require('firebase/firestore');
 const express = require('express');
-const moment = require('moment'); // Moment.js kütüphanesini dahil ettik
+const moment = require('moment-timezone'); // Moment.js ve timezone'u aynı anda dahil ettik
 
 // Firebase yapılandırma bilgisi
 const firebaseConfig = {
@@ -38,7 +38,7 @@ expressApp.get('/', (req, res) => {
 expressApp.post('/gonder', async (req, res) => {
   const ad = req.body.ad; // Formdan "ad" verisini al
   const mesaj = req.body.mesaj; // Formdan "mesaj" verisini al
-  const zaman = moment().format('MM/DD/YYYY, hh:mm A'); // Moment.js ile tarihi formatlıyoruz
+  const zaman = moment().tz("Europe/Istanbul").format('MM/DD/YYYY, hh:mm A'); // Moment.js ile İstanbul saatine göre tarihi formatlıyoruz
 
   // Firestore'a veri ekleyelim
   try {
