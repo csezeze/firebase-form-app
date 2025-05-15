@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { initializeApp } = require('firebase/app');
 const { getFirestore, collection, addDoc } = require('firebase/firestore');
 const express = require('express');
@@ -5,12 +7,12 @@ const moment = require('moment-timezone'); // Moment.js ve timezone'u aynı anda
 
 // Firebase yapılandırma bilgisi
 const firebaseConfig = {
-  apiKey: "AIzaSyBuvllPikzPN6TycT4hHiSt5wNNqFjcBP0",
-  authDomain: "fir-not-app.firebaseapp.com",
-  projectId: "fir-not-app",
-  storageBucket: "fir-not-app.firebasestorage.app",
-  messagingSenderId: "720230791485",
-  appId: "1:720230791485:web:e46c32295e83018e1cad54"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
 
 // Firebase'i başlat
